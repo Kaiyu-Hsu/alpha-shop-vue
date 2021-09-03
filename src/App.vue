@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
+      <!-- 之後會使用巢狀路由 -->
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/main">Alpha Shop</router-link>
     </div>
     <router-view/>
   </div>
@@ -33,6 +34,8 @@
 
 <script>
 import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
+
 export default {
   name: 'App',
 }
