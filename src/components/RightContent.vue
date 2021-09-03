@@ -63,3 +63,9 @@
       </div>
     </div>
 </template>
+
+<style scoped>
+.right-content {
+    border: 1px red solid
+}
+</style>
