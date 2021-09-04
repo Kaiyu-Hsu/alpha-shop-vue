@@ -3,7 +3,7 @@
     <h2 class="main-title">結帳</h2>
     <!--   stepper     -->
     <div id="step-control" class="stepper-panel">
-      <div class="stepper-container d-flex flex-row justify-content-around">
+      <div class="stepper-container d-flex flex-row justify-content-between">
         <div class="step d-flex flex-row active">
           <div class="circle-container text-center mr-1">
             <span class="text-black">1</span>
@@ -36,7 +36,13 @@
             <div class="gender-name form-row">
               <div class="col-3 mb-3 gender">
                 <label>稱謂</label>
-                <select name="title" id="title" class="custom-select" required>
+                <select
+                  name="title"
+                  id="title"
+                  class="custom-select"
+                  v-model="gender"
+                  required
+                >
                   <option value="" disabled selected>請選擇稱謂</option>
                   <option value="man">先生</option>
                   <option value="female">小姐</option>
@@ -45,6 +51,7 @@
               <div class="col-9 mb-3 name">
                 <label>姓名</label>
                 <input
+                  v-model="name"
                   id="name"
                   type="text"
                   placeholder="請輸入姓名"
@@ -56,6 +63,7 @@
               <div class="col-6 mb-3 phone">
                 <label for="">電話</label>
                 <input
+                  v-model="phone"
                   id="phone"
                   type="text"
                   placeholder="請輸入電話"
@@ -65,6 +73,7 @@
               <div class="col-6 mb-3 email">
                 <label for="">Email</label>
                 <input
+                  v-model="email"
                   id="email"
                   type="text"
                   placeholder="請輸入電子郵件"
@@ -75,7 +84,13 @@
             <div class="city-address form-row">
               <div class="col-3 mb-3 city">
                 <label>縣市</label>
-                <select name="city" id="city" class="custom-select" required>
+                <select
+                  name="city"
+                  id="city"
+                  class="custom-select"
+                  v-model="city"
+                  required
+                >
                   <option value="" disabled selected>請選擇縣市</option>
                   <option value="taipei">台北</option>
                   <option value="taichung">台中</option>
@@ -85,6 +100,7 @@
               <div class="col-9 mb-3 address">
                 <label for="">地址</label>
                 <input
+                  v-model="address"
                   id="address"
                   type="text"
                   placeholder="請輸入地址"
@@ -101,6 +117,7 @@
               <div class="form-row delivery-way">
                 <div class="delivery-container d-flex align-items-center">
                   <input
+                    v-model="deliveryWay"
                     name="deliver-type"
                     type="radio"
                     value="normal"
@@ -118,6 +135,7 @@
               <div class="form-row delivery-way">
                 <div class="delivery-container d-flex align-items-center">
                   <input
+                    v-model="deliveryWay"
                     name="deliver-type"
                     type="radio"
                     value="dhl"
@@ -139,11 +157,18 @@
             <h2 class="form-title">付款資訊</h2>
             <div class="form-group">
               <label for="">持卡人姓名</label>
-              <input id="card-holder" type="text" placeholder="Peter Chen" class="form-control"/>
+              <input
+                v-model="cardHolder"
+                id="card-holder"
+                type="text"
+                placeholder="Peter Chen"
+                class="form-control"
+              />
             </div>
             <div class="form-group">
               <label for="">卡號</label>
               <input
+                v-model="cardNumber"
                 id="card-number"
                 type="text"
                 class="w-19 form-control"
@@ -153,11 +178,23 @@
             <div class="date-cvc form-row">
               <div class="col-2 mr-5 date">
                 <label for="">有效期限</label>
-                <input id="card-date" type="text" placeholder="MM/YY" class="form-control"/>
+                <input
+                  v-model="cardDate"
+                  id="card-date"
+                  type="text"
+                  placeholder="MM/YY"
+                  class="form-control"
+                />
               </div>
               <div class="col-2 cvc">
                 <label for="">CVC/CCV</label>
-                <input id="card-cvc" type="text" placeholder="000" class="form-control"/>
+                <input
+                  v-model="cardCVC"
+                  id="card-cvc"
+                  type="text"
+                  placeholder="000"
+                  class="form-control"
+                />
               </div>
             </div>
           </div>
@@ -169,9 +206,9 @@
 
 <style scoped>
 .left-content {
-  border: 1px green solid;
+  /* border: 1px green solid; */
   width: 100%;
-  margin: 30px;
+  margin: 30px 80px 30px 30px;
 }
 
 h2 {
@@ -198,11 +235,11 @@ h2 {
 .connect-line {
   display: block;
   height: 2px;
-  background-color: rgb(12, 12, 12);
+  background-color: rgb(134, 131, 131);
   position: absolute;
   top: 12px;
-  right: calc(100% + 20px);
-  left: calc(-140% + 20px);
+  right: calc(90% + 20px);
+  left: -140%;
   /* &.active {
       background-color: black;
     } */
@@ -221,12 +258,28 @@ h2 {
       } */
 }
 
-.normal, .dhl {
-    margin: 0px 450px 0px 20px;
+.normal,
+.dhl {
+  margin: 0px 450px 0px 20px;
 }
-
 </style>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      gender: "",
+      name: "",
+      phone: "",
+      email: "",
+      city: "",
+      address: "",
+      deliveryWay: "",
+      cardHolder: "",
+      cardNumber: "",
+      cardDate: "",
+      cardCVC: "",
+    };
+  },
+};
 </script>
