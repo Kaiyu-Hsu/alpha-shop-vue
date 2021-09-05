@@ -59,7 +59,11 @@
     >
     <!-- disabled -->
       <button disabled class="btn btn-outline">上一步</button>
-      <button class="btn btn-next ml-4">下一步</button>
+      <button 
+      @click.stop.prevent="next"
+      class="btn btn-next ml-4">
+      下一步
+      </button>
     </div>
   </div>
 </template>
@@ -67,7 +71,7 @@
 <style scoped>
 .right-content {
   /* border: 1px red solid; */
-  width: 100%;
+  width: 70%;
   margin: 130px 30px 30px 30px;
 }
 
@@ -126,3 +130,15 @@ img {
     background-color: #f67599;
   }
 </style>
+
+<script>
+export default {
+  methods: {
+    next(e) {
+    console.log(e.target)
+    this.$emit("next-step")
+    },
+
+  }
+}
+</script>
