@@ -67,16 +67,11 @@
   margin-bottom: 10px;
   border-radius: 4px;
   padding: 15px;
-  /* &:hover,
-      &:active,
-      &:focus-within {
-        border: 1px black solid;
-      } */
 }
 
 .normal,
 .dhl {
-  margin: 0px 450px 0px 20px;
+  margin: 0px 420px 0px 20px;
 }
 
 .btn-next,
@@ -114,7 +109,6 @@ export default {
   },
   methods: {
     next() {
-      //   const { gender, name, phone, email, city, address} = this.user
       this.$emit("next-step");
       this.$router.push({ name: "step3" });
     },

@@ -28,7 +28,6 @@
 }
 
 .left-content {
-  /* border: 1px green solid; */
   width: 100%;
   margin: 30px 80px 30px 30px;
 }

@@ -3,7 +3,7 @@
     <!--    cart    -->
     <div class="cart-panel d-flex flex-row justify-content-center">
       <div class="cart-container">
-        <!-- <h4 class="cart">購物籃</h4> -->
+        <h4 class="cart">購物籃</h4>
         <!--     shopping list       -->
         <div class="shopping-list mb-5">
           <div
@@ -57,7 +57,6 @@
 
 <style scoped>
 .right-content {
-  /* border: 1px red solid; */
   width: 70%;
   margin: 100px 30px 30px 30px;
 }
