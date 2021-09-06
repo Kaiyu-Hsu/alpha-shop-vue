@@ -54,7 +54,7 @@
           class="control-panel d-flex justify-content-around mt-3"
         >
           <!-- disabled -->
-          <button @click.stop.prevent="last" class="btn btn-outline">上一步</button>
+          <button @click.stop.prevent="previous" class="btn btn-outline">上一步</button>
           <button @click.stop.prevent="next" class="btn btn-next ml-4">
             完成訂單
           </button>
@@ -93,7 +93,6 @@ export default {
         cardNumber: "",
         cardDate: "",
         cardCVC: "",
-        step: 3,
       }),
     },
   },
@@ -103,8 +102,8 @@ export default {
     };
   },
   methods: {
-    last() {
-      this.$emit("last-step");
+    previous() {
+      this.$emit("previous-step");
       this.$router.push({ name:'step2'})  
     }
 },

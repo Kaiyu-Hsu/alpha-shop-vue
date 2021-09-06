@@ -49,7 +49,7 @@
           class="control-panel d-flex justify-content-around mt-3"
         >
           <!-- disabled -->
-          <button @click.stop.prevent="last" class="btn btn-outline">
+          <button @click.stop.prevent="previous" class="btn btn-outline">
             上一步
           </button>
           <button @click.stop.prevent="next" class="btn btn-next ml-4">
@@ -104,7 +104,6 @@ export default {
       type: Object,
       default: () => ({
         delivery: 0,
-        step: 2,
       }),
     },
   },
@@ -119,8 +118,8 @@ export default {
       this.$emit("next-step");
       this.$router.push({ name: "step3" });
     },
-    last() {
-      this.$emit("last-step");
+    previous() {
+      this.$emit("previous-step");
       this.$router.push({ name: "step1" });
     },
   },

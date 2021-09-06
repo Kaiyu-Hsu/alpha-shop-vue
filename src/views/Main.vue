@@ -4,12 +4,12 @@
       <h2 class="main-title">結帳</h2>
       <!--   left-side   -->
       <!-- stepper -->
-      <StepperPanel />
+      <StepperPanel :step="user.step" />
       <!-- form -->
-      <router-view 
+      <router-view
         :initial-user="user"
         @next-step="nextStep"
-        @last-step="lastStep"
+        @previous-step="previousStep"
       />
     </div>
     <!--   right-side    -->
@@ -19,14 +19,13 @@
 
 <style>
 #main-content {
-  /* border: 1px black solid; */
   width: 90%;
   height: 100%;
   margin: auto auto;
 }
 
 .left-content {
-  border: 1px green solid;
+  /* border: 1px green solid; */
   width: 100%;
   margin: 30px 80px 30px 30px;
 }
@@ -60,14 +59,33 @@ export default {
         cardNumber: "",
         cardDate: "",
         cardCVC: "",
-        step: -1,
+        step: "",
       },
     };
   },
   methods: {
+      startStep() {
+        if(this.$route.name === 'step1') {
+            this.user.step = 1
+        } else if (this.$route.name === 'step2') {
+          this.user.step = 2  
+        } else if (this.$route.name === 'step3') {
+           this.user.step = 3 
+        }
+      },
       nextStep() {
         this.user.step += 1
-      }
+      },
+      previousStep() {
+        this.user.step -= 1
+      },
+
+  },
+  created() {
+      this.startStep()
+  },
+  updated() {
+      this.startStep()
   }
 };
 </script>

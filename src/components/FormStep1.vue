@@ -128,7 +128,6 @@ export default {
         email: "",
         city: "",
         address: "",
-        step: 1,
       }),
     },
   },
@@ -138,11 +137,9 @@ export default {
     };
   },
   methods: {
-    next(e) {
-      console.log(e.target);
-    //   const { gender, name, phone, email, city, address} = this.user
+    next() {
       this.$emit('next-step')
-      this.$router.push({ name:'step2'})
+      this.$router.push({ name:'step2'}) //導向另一個子路由
     },
   },
 };
