@@ -13,7 +13,10 @@
       />
     </div>
     <!--   right-side    -->
-    <RightContent />
+    <RightContent 
+    :initial-items="items"
+    :delivery="user.delivery"
+    />
   </main>
 </template>
 
@@ -54,13 +57,29 @@ export default {
         email: "",
         city: "",
         address: "",
-        delivery: 0,
+        delivery: "0",
         cardHolder: "",
         cardNumber: "",
         cardDate: "",
         cardCVC: "",
         step: "",
       },
+      items: [
+        {
+          id: 1,
+          name: "破洞補釘牛仔褲",
+          amount: 1,
+          cost: 3999,
+          img: "https://i.ibb.co/vXLmvf0/1.jpg",
+        },
+        {
+          id: 2,
+          name: "刷色直筒牛仔褲",
+          amount: 1,
+          cost: 1999,
+          img: "https://i.ibb.co/qYnKGs7/2.jpg",
+        },
+      ],
     };
   },
   methods: {
@@ -84,7 +103,7 @@ export default {
   created() {
       this.startStep()
   },
-  updated() {
+  updated() { //已有data需要重新渲染畫面
       this.startStep()
   }
 };
